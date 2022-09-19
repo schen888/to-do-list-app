@@ -1,7 +1,6 @@
 function newItem(){
     let inputValue=$('#input').val();
     let list=$('#list');
-    console.log(inputValue);
 
     if (inputValue==='') {
         alert('You must write something.');
@@ -9,5 +8,8 @@ function newItem(){
         let li=$('<li></li>');
         li.append(inputValue);
         list.append(li);
+        let crossOutButton=$('<crossOutButton></crossOutButton>');
+        crossOutButton.append(document.createTextNode('X'));
+        li.append(crossOutButton);
     }
 }
