@@ -2,22 +2,20 @@ function newItem(){
     let inputValue=$('#input').val();
     let list=$('#list');
     let li=$('<li></li>');
-    list.append(li);
+    let crossOutButton=$('<crossOutButton></crossOutButton>');
 
     if (inputValue==='') {
         alert('You must write something.');
     } else {
         li.append(inputValue);
-        let crossOutButton=$('<crossOutButton></crossOutButton>');
+        list.append(li);
         crossOutButton.append(document.createTextNode('X'));
         li.append(crossOutButton);
     }
 
-/*     function crossOut(){
-        li.toggleClass('strike');
-    }
-     */
     li.dblclick(()=>li.toggleClass('strike'));
 
+    crossOutButton.click(()=>li.addClass('delete'));
 
+    $('#list').sortable();
 }
